@@ -7,7 +7,7 @@ import { AuthRoutingModule } from './modules/auth-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
