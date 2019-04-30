@@ -1,0 +1,34 @@
+nav {
+    background-color: #64b5f6;
+    font-weight: normal;
+}
+
+.unread {
+color: #64b5f6;
+margin: 0px !important;
+padding: 0px !important;
+font-weight: bold;
+}
+
+.time{
+    margin-bottom: 10px !important;
+    font-size: italic;
+}
+
+.text{
+    text-align: center;
+}
+
+.material-icons {
+    color: #64b5f6;
+    cursor: pointer;
+}
+
+.secondary-content {
+    margin-top: -5px !important;
+}
+
+.markAll {
+    color: #64b5f6;
+    background: inherit !important;
+}

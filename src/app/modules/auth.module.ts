@@ -8,8 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthTabsComponent } from '../components/auth-tabs/auth-tabs.component';
 import { LoginComponent } from '../components/login/login.component';
 import { SignupComponent } from '../components/signup/signup.component';
-import { StreamsModule } from './streams.module';
-import { StreamsRoutingModule } from './streams-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,9 +19,8 @@ import { StreamsRoutingModule } from './streams-routing.module';
     CommonModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    StreamsModule,
-    StreamsRoutingModule
+    ReactiveFormsModule
+
   ],
   exports: [
     AuthTabsComponent,
