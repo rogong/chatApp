@@ -13,14 +13,14 @@ export class PostsComponent implements OnInit {
   posts = [];
 
   constructor(private postService: PostService) {
-    // this.socket = io('http://localhost:3000');
+    this.socket = io('http://localhost:3000');
   }
 
   ngOnInit() {
     this.loadPosts();
-    // this.socket.on('refreshPage', (data) => {
-    //   this.loadPosts();
-    // });
+    this.socket.on('refreshPage', (data) => {
+      this.loadPosts();
+    });
   }
 
   loadPosts() {
