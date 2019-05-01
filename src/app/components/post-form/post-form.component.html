@@ -2,10 +2,10 @@
   <div class="col s12 m12 l12">
     <div class="card postDiv">
       <div class="card-content">
-        <form>
+        <form [formGroup]="postForm" novalidate (ngSubmit)="submitPost()">
           <div class="formDiv">
 
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <textarea formControlName="post" class="materialize-textarea"></textarea>
 
             <div class="file-field input-field">
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  user: any;
 
-  constructor() { }
+  constructor(private tokenService: TokenService) { }
 
   ngOnInit() {
+    this.user = this.tokenService.GetPayload();
   }
 
 }

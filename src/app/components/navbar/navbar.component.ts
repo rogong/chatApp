@@ -8,12 +8,12 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  token: any;
+  user: any;
   constructor(private tokenService: TokenService, private router: Router) { }
 
   ngOnInit() {
-    this.token = this.tokenService.GetToken();
-    console.log(this.token);
+    this.user = this.tokenService.GetPayload();
+
   }
 
   logout() {
