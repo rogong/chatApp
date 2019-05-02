@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,11 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class NavbarComponent implements OnInit {
   user: any;
-  constructor(private tokenService: TokenService, private router: Router) { }
+  constructor(
+    private tokenService: TokenService,
+    private router: Router,
+    private alertify: AlertifyService
+  ) { }
 
   ngOnInit() {
     this.user = this.tokenService.GetPayload();
@@ -19,6 +24,7 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.tokenService.DeleteToken();
     this.router.navigate(['/']);
+    this.alertify.message('You have logged out');
 
   }
 

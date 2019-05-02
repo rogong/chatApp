@@ -21,15 +21,22 @@
                 </div>
 
                 <div class="card-action">
-                    <i class="material-icons">
+                    <i (click)="likePost(post)"
+                        [ngClass]="(!checkInLikesArray(post.likes, user.username)) ? 'notLiked' : 'liked'"
+                        class="material-icons">
                         thumb_up
                     </i>
                     <span class="iconSpan">{{post.totalLikes}}</span>
-                    <i class="material-icons">
+                    <i (click)="openCommentPost(post)" class="material-icons">
                         chat
                     </i>
                     <span class="iconSpan">{{post.comments.length}}</span>
                 </div>
+
+
+            </div>
+            <div *ngIf="commentMode" class="comment">
+                <app-comments (cancelRegister)="cancelRegisterMode($event)"></app-comments>
             </div>
         </div>
     </div>

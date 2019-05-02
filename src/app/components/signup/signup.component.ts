@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class SignupComponent implements OnInit {
     private authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
-    private tokenService: TokenService) { }
+    private tokenService: TokenService,
+    private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.init();
@@ -43,6 +45,7 @@ export class SignupComponent implements OnInit {
         setTimeout(() => {
           this.router.navigate(['streams']);
         }, 2000);
+        this.alertify.success('Login succesful');
       },
         err => {
           this.showSpinner = false;

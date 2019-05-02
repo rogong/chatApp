@@ -12,6 +12,8 @@ import { RightBarComponent } from '../components/right-bar/right-bar.component';
 
 import { TokenService } from '../services/token.service';
 import { PostService } from '../services/post.service';
+import { CommentsComponent } from '../components/comments/comments.component';
+import { AlertifyService } from '../services/alertify.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { PostService } from '../services/post.service';
     PostFormComponent,
     PostsComponent,
     RightBarComponent,
+    CommentsComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +33,6 @@ import { PostService } from '../services/post.service';
 
   ],
   exports: [StreamsComponent, NavbarComponent],
-  providers: [TokenService, PostService]
+  providers: [TokenService, PostService, AlertifyService]
 })
 export class StreamsModule { }

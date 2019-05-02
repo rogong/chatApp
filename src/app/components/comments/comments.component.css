@@ -1,0 +1,58 @@
+/* .formDiv {
+    margin: 0px 20px 0px 20px;
+}
+
+form {
+    background-color: #fff;
+}
+
+.formDiv {
+    margin: 0px 20px 0px 20px;
+}
+
+.addImageBtn {
+    margin-bottom: 5px;
+}
+
+.postBtn {
+    float: right;
+    margin-bottom: 5px;
+}
+
+.title {
+    font-weight: 14px;
+    color: #64b5f6;
+}
+
+.time {
+    font-size: 14px;
+    color: #666565;
+}
+.postComment {
+    font-size: 15px;
+} */
+
+.postDiv {
+    /* background-color: #64b5f6; */
+}
+
+form {
+    background-color: #fff;
+}
+
+.formDiv {
+    margin: 0px 20px 0px 20px;
+}
+
+.addImageBtn {
+    margin-bottom: 5px;
+}
+
+.postBtn {
+    float: right;
+    margin-bottom: 5px;
+}
+
+.file-field input[type='file'] {
+    width: 70% !important;
+}
