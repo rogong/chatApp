@@ -1,39 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-const BASEURL = 'http://localhost:3000/api/chatapp';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
+  baseUrl = environment.baseUrl;
+
   constructor(private http: HttpClient) { }
 
   addPost(body): Observable<any> {
 
-    return this.http.post(`${BASEURL}/post/add-post`, body);
+    return this.http.post(`${this.baseUrl}/post/add-post`, body);
   }
 
-  getAppPosts(): Observable<any> {
-    return this.http.get(`${BASEURL}/posts`);
+  getAllPosts(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/posts`);
   }
 
   addLike(body): Observable<any> {
 
-    return this.http.post(`${BASEURL}/post/add-like`, body);
+    return this.http.post(`${this.baseUrl}/post/add-like`, body);
   }
 
   addComment(postId, comment): Observable<any> {
 
-    return this.http.post(`${BASEURL}/post/add-comment`, {
+    return this.http.post(`${this.baseUrl}/post/add-comment`, {
       postId, comment
     });
   }
 
   getPost(id): Observable<any> {
-    return this.http.get(`${BASEURL}/post/${id}`);
+    return this.http.get(`${this.baseUrl}/post/${id}`);
   }
 
 

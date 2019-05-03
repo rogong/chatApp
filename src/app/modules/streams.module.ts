@@ -14,8 +14,9 @@ import { TokenService } from '../services/token.service';
 import { PostService } from '../services/post.service';
 import { CommentsComponent } from '../components/comments/comments.component';
 import { AlertifyService } from '../services/alertify.service';
-import { MomentService } from '../services/moment.service';
 import { RouterModule } from '@angular/router';
+import { PeopleComponent } from '../components/people/people.component';
+import { UsersService } from '../services/users.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { RouterModule } from '@angular/router';
     PostsComponent,
     RightBarComponent,
     CommentsComponent,
+    PeopleComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +38,6 @@ import { RouterModule } from '@angular/router';
 
   ],
   exports: [StreamsComponent, NavbarComponent],
-  providers: [TokenService, PostService, AlertifyService, MomentService]
+  providers: [TokenService, PostService, AlertifyService, UsersService]
 })
 export class StreamsModule { }

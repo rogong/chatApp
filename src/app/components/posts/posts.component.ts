@@ -36,7 +36,7 @@ export class PostsComponent implements OnInit {
   }
 
   loadPosts() {
-    this.postService.getAppPosts()
+    this.postService.getAllPosts()
       .subscribe(data => {
         this.posts = data.posts;
       },

@@ -1,0 +1,9 @@
+.cardWrapper .card{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    
+  }
+  
+fieldset {
+    border: 1px solid rgba(0, 0, 0, 0.2); 
+}
