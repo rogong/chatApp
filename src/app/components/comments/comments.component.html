@@ -38,11 +38,48 @@
               </form>
             </div>
           </div>
+
+
+
+          <div class="col s12 l12">
+
+            <div class="row valign-wrapper" *ngFor="let comment of comments">
+              <div class="col s2">
+                <img src="/assets/img/head.png" alt="" class="circle responsive-img" style="width: 30px">
+                <!-- notice the "circle" class -->
+              </div>
+              <div class="col s10 grey lighten-5 z-depth-1 noshadow commemtradius">
+                <div class="" style="margin:10px">
+                  <!-- Dropdown Trigger -->
+                  <a class='dropdown-trigger secondary-content' data-target='dropdown1'>
+                    {{ timeFromNow(comment.createdAt)}} ....</a>
+
+                  <!-- Dropdown Structure -->
+                  <ul id='dropdown1' class='dropdown-content'>
+
+
+                    <li><a href="#!"><i class="material-icons">view_module</i>Edit</a></li>
+                    <li><a href="#!"><i class="material-icons">cloud</i>Delete</a></li>
+                  </ul>
+
+                  <span class="black-text">
+                    {{comment.username}}
+
+                  </span>
+                  <p class="time">{{comment.comment}}</p>
+
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </div>
     </div>
     <div class="col s12  l3">
-      <h6 style="text-align:center">Add to your feed</h6>
+      <h6 style="text-align: center;">Add to your feed</h6>
       <app-right-bar></app-right-bar>
     </div>
 

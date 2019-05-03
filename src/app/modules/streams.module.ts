@@ -14,6 +14,7 @@ import { TokenService } from '../services/token.service';
 import { PostService } from '../services/post.service';
 import { CommentsComponent } from '../components/comments/comments.component';
 import { AlertifyService } from '../services/alertify.service';
+import { MomentService } from '../services/moment.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,6 @@ import { AlertifyService } from '../services/alertify.service';
 
   ],
   exports: [StreamsComponent, NavbarComponent],
-  providers: [TokenService, PostService, AlertifyService]
+  providers: [TokenService, PostService, AlertifyService, MomentService]
 })
 export class StreamsModule { }

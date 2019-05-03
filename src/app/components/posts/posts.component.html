@@ -27,7 +27,8 @@
                         thumb_up
                     </i>
                     <span class="iconSpan">{{post.totalLikes}}</span>
-                    <i (click)="openCommentPost(post)" class="material-icons">
+                    <i (click)="openCommentPost(post)" class="material-icons"
+                        [ngClass]="(!checkInLikesArray(post.comments, user.username)) ? 'notLiked' : 'liked'">
                         chat
                     </i>
                     <span class="iconSpan">{{post.comments.length}}</span>

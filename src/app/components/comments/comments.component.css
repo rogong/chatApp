@@ -56,3 +56,13 @@ form {
 .file-field input[type='file'] {
     width: 70% !important;
 }
+
+.noshadow {
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.commemtradius {
+    border-radius: 15px 50px; 
+}
