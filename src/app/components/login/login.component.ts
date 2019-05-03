@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.SetToken(data.token);
         this.loginForm.reset();
         setTimeout(() => {
-          this.router.navigate(['streams']);
+          this.router.navigate(['events']);
         }, 2000);
         this.alertify.success('Login succesful');
       },

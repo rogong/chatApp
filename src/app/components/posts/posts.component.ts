@@ -40,8 +40,12 @@ export class PostsComponent implements OnInit {
       .subscribe(data => {
         this.posts = data.posts;
       },
-        error => {
-          this.alertify.error('Token expired, login again.');
+        err => {
+          if (err.error.token === null) {
+            this.tokenService.DeleteToken();
+            this.router.navigate(['']);
+            this.alertify.error('Token expired, login again.');
+          }
         }
       );
   }

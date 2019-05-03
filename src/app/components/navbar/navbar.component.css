@@ -1,10 +1,10 @@
 nav {
-    background-color: #64b5f6;
+    background-color: #00AA8D;
     font-weight: normal;
 }
 
 .unread {
-color: #64b5f6;
+color: #00AA8D;
 margin: 0px !important;
 padding: 0px !important;
 font-weight: bold;
@@ -29,6 +29,6 @@ font-weight: bold;
 }
 
 .markAll {
-    color: #64b5f6;
+    color: #00AA8D;
     background: inherit !important;
 }

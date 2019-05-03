@@ -2,32 +2,34 @@
   <div class="col s12 m4">
     <a>
       <span>Posts</span>
-      <p>10</p>
+      <p class="num">0</p>
     </a>
   </div>
   <div class="col s12 m4">
     <a>
       <span>Following</span>
-      <p>100</p>
+      <p class="num">0</p>
     </a>
   </div>
   <div class="col s12 m4">
     <a>
       <span>Followers</span>
-      <p>10,000</p>
+      <p class="num">0</p>
     </a>
   </div>
 </div>
 <ul class="collection with-header">
-  <li class="collection-header" style="background-color:#2196F3; text-align: center;color: #ffffff">
+  <li class="collection-header" style="background-color:#00AA8D; text-align: center;color: #ffffff">
     <img src="/assets/img/head.png" alt="" class="circle responsive-img" style="width:50px">
 
     <h6>{{user.username}}</h6>
     <p>Full-Stack Developer</p>
 
   </li>
-  <li class="collection-item">
-    <div>Feeds<a href="#!" class="secondary-content"><i class="material-icons">announcement</i></a></div>
+  <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+    <a [routerLink]="['/events']">
+      <div>Events<a href="#!" class="secondary-content"><i class="material-icons">announcement</i></a></div>
+    </a>
   </li>
   <li class="collection-item">
     <div>People<a href="#!" class="secondary-content"><i class="material-icons">people</i></a></div>

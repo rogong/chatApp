@@ -15,6 +15,7 @@ import { PostService } from '../services/post.service';
 import { CommentsComponent } from '../components/comments/comments.component';
 import { AlertifyService } from '../services/alertify.service';
 import { MomentService } from '../services/moment.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MomentService } from '../services/moment.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
 
   ],
   exports: [StreamsComponent, NavbarComponent],

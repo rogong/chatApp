@@ -6,7 +6,7 @@ import { CommentsComponent } from '../components/comments/comments.component';
 
 const routes: Routes = [
   {
-    path: 'streams',
+    path: 'events',
     component: StreamsComponent,
     canActivate: [AuthGuard]
   },

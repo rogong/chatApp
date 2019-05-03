@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     const token = this.tokenService.GetToken();
     if (token) {
-      this.router.navigate(['streams']);
+      this.router.navigate(['events']);
     } else {
       this.router.navigate(['']);
     }

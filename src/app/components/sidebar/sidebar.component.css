@@ -7,5 +7,24 @@ a {
 }
 
 .active {
-    background: #64b5f6;
+    background: #00AA8D;
+}
+
+.material-icons {
+    color: #00AA8D;
+}
+
+.active .material-icons {
+    color: #fff;
+}
+.row  span {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.num {
+    margin: 0 !important;
+    color: #00AA8D;
+    font-size: 16px;
+    font-weight: bold;
 }
