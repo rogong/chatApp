@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         this.loginForm.reset();
         setTimeout(() => {
           this.router.navigate(['events']);
-        }, 2000);
+        }, 1000);
         this.alertify.success('Login succesful');
       },
         err => {

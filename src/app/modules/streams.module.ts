@@ -17,6 +17,7 @@ import { AlertifyService } from '../services/alertify.service';
 import { RouterModule } from '@angular/router';
 import { PeopleComponent } from '../components/people/people.component';
 import { UsersService } from '../services/users.service';
+import { FollowingComponent } from '../components/following/following.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UsersService } from '../services/users.service';
     RightBarComponent,
     CommentsComponent,
     PeopleComponent,
+    FollowingComponent,
   ],
   imports: [
     CommonModule,

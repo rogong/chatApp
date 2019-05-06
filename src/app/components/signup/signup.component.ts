@@ -43,9 +43,9 @@ export class SignupComponent implements OnInit {
         this.tokenService.SetToken(data.token);
         this.signupForm.reset();
         setTimeout(() => {
-          this.router.navigate(['events']);
-        }, 2000);
-        this.alertify.success('Login succesful');
+          this.router.navigate(['login']);
+        }, 1000);
+        this.alertify.success('Signup succesful, login to continue.');
       },
         err => {
           this.showSpinner = false;
