@@ -10,10 +10,8 @@ import io from 'socket.io-client';
 })
 export class SidebarComponent implements OnInit {
   user: any;
-  following = [];
-  followers = [];
-  posts = [];
   socket: any;
+  userData: any;
 
   constructor(
     private tokenService: TokenService,
@@ -31,10 +29,7 @@ export class SidebarComponent implements OnInit {
   getUser() {
     this.userService.getUserById(this.user._id)
       .subscribe(data => {
-        console.log(data);
-        this.following = data.result.following;
-        this.followers = data.result.followers;
-        this.posts = data.result.posts;
+        this.userData = data.result;
       }, err => console.log(err));
   }
 

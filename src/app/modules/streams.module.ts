@@ -21,6 +21,8 @@ import { FollowingComponent } from '../components/following/following.component'
 import { FollowerComponent } from '../components/follower/follower.component';
 import { NotificationsComponent } from '../components/notifications/notifications.component';
 import { TopStreamsComponent } from '../components/top-streams/top-streams.component';
+import { ChatComponent } from '../components/chat/chat.component';
+import { MessageComponent } from '../components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { TopStreamsComponent } from '../components/top-streams/top-streams.compo
     FollowerComponent,
     NotificationsComponent,
     TopStreamsComponent,
+    ChatComponent,
+    MessageComponent,
   ],
   imports: [
     CommonModule,
