@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="wrapper" style="margin-top: 30px">
+  <div class="row">
+
+    <div class="col s12  l1"></div>
+
+    <div class="col s12  l2">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col s12  l5">
+
+      <fieldset>
+        <span class="fontsize">Recent</span>
+        <a class="secondary-content btn" (click)="markAllAsRead()"> Mark All As Read</a>
+
+      </fieldset>
+      <fieldset>
+        <ul class="collection col s12 m12" *ngIf="notifications.length > 0">
+          <li class="collection-item " *ngFor="let notification of notifications">
+
+            <div [ngClass]="!notification.read ? 'unread' : ''">
+              <img src="/assets/img/head.png" class="circle" alt="" width="30">
+              {{timeFromNow(notification.created)}},
+              <span class="title">{{notification.message}}</span>
+              <a class="secondary-content">
+                <i *ngIf="!notification.read" class="material-icons">brightness_1</i>
+                <i *ngIf="notification.read" class="material-icons">panorama_fish_eye</i>
+              </a>
+              <p class="time"></p>
+              <div>
+                <i class="material-icons" (click)="markNotification(notification)"
+                  [ngClass]="notification.read ? 'disabled' : 'notDisabled'">check</i>
+                <i class="material-icons" (click)="deleteNotification(notification)">delete_forever</i>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </fieldset>
+      <div class="row text" *ngIf="notifications.length <= 0">
+        <h5>You have no notification.</h5>
+      </div>
+    </div>
+    <div class="col s12  l3">
+
+      <app-right-bar></app-right-bar>
+    </div>
+
+    <div class="col s12  l1"></div>
+  </div>
+
+</div>

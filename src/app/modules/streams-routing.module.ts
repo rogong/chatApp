@@ -5,6 +5,8 @@ import { AuthGuard } from '../services/auth.guard';
 import { CommentsComponent } from '../components/comments/comments.component';
 import { PeopleComponent } from '../components/people/people.component';
 import { FollowingComponent } from '../components/following/following.component';
+import { FollowerComponent } from '../components/follower/follower.component';
+import { NotificationsComponent } from '../components/notifications/notifications.component';
 
 const routes: Routes = [
 
@@ -26,6 +28,16 @@ const routes: Routes = [
   {
     path: 'user/following',
     component: FollowingComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'user/followers',
+    component: FollowerComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'notifications',
+    component: NotificationsComponent,
     canActivate: [AuthGuard]
   }
 ];

@@ -18,6 +18,9 @@ import { RouterModule } from '@angular/router';
 import { PeopleComponent } from '../components/people/people.component';
 import { UsersService } from '../services/users.service';
 import { FollowingComponent } from '../components/following/following.component';
+import { FollowerComponent } from '../components/follower/follower.component';
+import { NotificationsComponent } from '../components/notifications/notifications.component';
+import { TopStreamsComponent } from '../components/top-streams/top-streams.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { FollowingComponent } from '../components/following/following.component'
     CommentsComponent,
     PeopleComponent,
     FollowingComponent,
+    FollowerComponent,
+    NotificationsComponent,
+    TopStreamsComponent,
   ],
   imports: [
     CommonModule,

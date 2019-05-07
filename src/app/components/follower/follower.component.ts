@@ -3,23 +3,22 @@ import { TokenService } from 'src/app/services/token.service';
 import { UsersService } from 'src/app/services/users.service';
 import io from 'socket.io-client';
 
+
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  selector: 'app-follower',
+  templateUrl: './follower.component.html',
+  styleUrls: ['./follower.component.css']
 })
-export class SidebarComponent implements OnInit {
-  user: any;
-  following = [];
+export class FollowerComponent implements OnInit {
   followers = [];
-  posts = [];
+  user: any;
   socket: any;
 
   constructor(
     private tokenService: TokenService,
-    private userService: UsersService
-  ) { this.socket = io('http://localhost:3000'); }
-
+    private userService: UsersService) {
+    this.socket = io('http://localhost:3000');
+  }
   ngOnInit() {
     this.user = this.tokenService.GetPayload();
     this.getUser();
@@ -31,11 +30,8 @@ export class SidebarComponent implements OnInit {
   getUser() {
     this.userService.getUserById(this.user._id)
       .subscribe(data => {
-        console.log(data);
-        this.following = data.result.following;
+
         this.followers = data.result.followers;
-        this.posts = data.result.posts;
       }, err => console.log(err));
   }
-
 }

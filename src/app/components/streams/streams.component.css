@@ -2,3 +2,12 @@
     margin-left: 30px;
     margin-right: 30px;
 }
+.tabs a{
+    color: #64b5f6;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.tabs .active {
+    background: inherit !important;
+}

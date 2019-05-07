@@ -1,0 +1,36 @@
+.material-icons {
+    color: #00AA8D !important;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.time {
+    margin-bottom: 10px !important;
+    font-style: italic;
+}
+
+.text {
+    text-align: center;
+    font-size: 15px !important;
+}
+
+ul {
+    border-left-width: 0px;
+    border-right-width: 0px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    background-color:#c5e1a5 !important;
+}
+
+.unread {
+    background-color:#dcedc8;
+}
+
+.disabled {
+    color: #c0c0c0 !important;
+}
+  
+fieldset {
+    border: 1px solid rgba(0, 0, 0, 0.2); 
+    margin-top: 10px;
+}
