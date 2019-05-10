@@ -8,6 +8,8 @@ import { FollowingComponent } from '../components/following/following.component'
 import { FollowerComponent } from '../components/follower/follower.component';
 import { NotificationsComponent } from '../components/notifications/notifications.component';
 import { ChatComponent } from '../components/chat/chat.component';
+import { ImagesComponent } from '../components/images/images.component';
+import { ViewUserComponent } from '../components/view-user/view-user.component';
 
 const routes: Routes = [
 
@@ -45,6 +47,21 @@ const routes: Routes = [
     path: 'chat/:name',
     component: ChatComponent,
     canActivate: [AuthGuard]
+  }
+  ,
+  {
+    path: 'images/:name',
+    component: ImagesComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: ':name',
+    component: ViewUserComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '*',
+    redirectTo: 'events'
   }
 ];
 

@@ -1,0 +1,176 @@
+<app-navbar></app-navbar>
+<div class="wrapper" style="margin-top: 30px">
+  <div class="row">
+
+    <div class="col s12  l1"></div>
+
+
+    <div class="col s12  l7">
+      <!-- User Info -->
+
+      <div class="row">
+        <div class="col s12 m12">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://res.cloudinary.com/rogong/image/upload/v1557473339/ext.jpg" height="300px">
+              <span class="card-title" style="background:#fff;color: #00AA8D">
+
+                <div class="imgDiv">
+                  <img src="https://res.cloudinary.com/rogong/image/upload/v{{userPicVersion}}/{{userPicId}}" alt=""
+                    class="circle responsive-img" style="width:200px">
+                </div>
+
+                {{name}}
+              </span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red">
+                <i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+              <div class="row">
+                <div class="col s12 m4">
+                  <a>
+                    <span>Posts</span>
+                    <p class="num" *ngIf="posts">{{posts.length}}</p>
+                    <p class="num" *ngIf="!posts">0</p>
+                  </a>
+                </div>
+                <div class="col s12 m4">
+                  <a>
+                    <span>Following</span>
+                    <p class="num" *ngIf="following">{{following.length}}</p>
+                    <p class="num" *ngIf="!following">0</p>
+                  </a>
+                </div>
+                <div class="col s12 m4">
+                  <a>
+                    <span>Followers</span>
+                    <p class="num" *ngIf="followers">{{followers.length}}</p>
+                    <p class="num" *ngIf="!followers">0</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col s12 m12 l10">
+          <ul class="tabs">
+            <li class="tab col s3" (click)="changeTabs('posts')">
+              <a href="#posts" class="active">Posts</a>
+            </li>
+            <li class="tab col s3" (click)="changeTabs('followers')">
+              <a href="#followers" class="active">Followers</a>
+            </li>
+            <li class="tab col s3" (click)="changeTabs('following')">
+              <a href="#following">Following</a>
+            </li>
+            <li class="tab col s3" (click)="changeTabs('interests')">
+              <a href="#interests">Interests</a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="posts" class="col s12" *ngIf="postsTab">
+          <div class="card" *ngFor="let post of posts">
+            <div class="card-image card_image">
+              <img src="/assets/img/bg.png" alt="" class="postImage">
+            </div>
+            <div class="card-content">
+              <p>{{post.postId.post}}</p>
+            </div>
+            <div class="card-action">
+              <i class="material-icons">thumb_up</i>
+              <span id="iconSpan">{{post.postId.totalLikes}}</span>
+              <i class="material-icons">chat</i>
+              <span id="iconSpan">{{post.postId.comments.length}}</span>
+
+              <span style="float:right">{{timeFromNow(post.postId.created)}}</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="followers" class="col s12" *ngIf="followersTab">
+          <fieldset *ngIf="following.length > 0">
+
+            <div class="col s12 m6 l4 cardDiv" *ngFor="let user of followers">
+
+              <div class="card">
+
+                <a>
+                  <div class="imgDiv" style="text-align:center;background-color: #00AA8D">
+                    <img
+                      src="https://res.cloudinary.com/rogong/image/upload/v{{user.follower.picVersion}}/{{user.follower.picId}}"
+                      alt="" class="circle responsive-img" style="width:50px">
+                  </div>
+                </a>
+                <div class="card-action">
+                  <h3 class="card-title">
+                    {{user.follower.username}}
+                  </h3>
+                  <p>Country</p>
+
+
+                  <a class="secondry-content">
+                    <i class="material-icons">chat</i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+
+        <div id="following" class="col s12" *ngIf="followingTab">
+
+          <fieldset *ngIf="following.length > 0">
+
+            <div class="col s12 m6 l4 cardDiv" *ngFor="let user of following">
+
+              <div class="card">
+
+                <a>
+                  <div class="imgDiv" style="text-align:center;background-color: #00AA8D">
+                    <img
+                      src="https://res.cloudinary.com/rogong/image/upload/v{{user.userFollowed.picVersion}}/{{user.userFollowed.picId}}"
+                      alt="" class="circle responsive-img" style="width:50px">
+                  </div>
+                </a>
+                <div class="card-action">
+                  <h3 class="card-title">
+                    {{user.userFollowed.username}}
+                  </h3>
+                  <p>Country</p>
+
+
+                  <a class="secondry-content">
+                    <i class="material-icons">chat</i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div id="interets" class="col s12" *ngIf="interestTab">
+
+          <h1>Interest</h1>
+        </div>
+
+
+      </div>
+
+    </div>
+    <div class="col s12  l3">
+      <h6 style="text-align:center">Add to your feed</h6>
+      Followers
+    </div>
+
+    <div class="col s12  l1"></div>
+  </div>
+
+</div>

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:3000/api/chatapp'
+  baseUrl: 'http://localhost:3000/api/chatapp',
+  baseUrlSocket: 'http://localhost:3000'
 };
 
 /*

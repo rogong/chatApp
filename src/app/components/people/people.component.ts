@@ -3,6 +3,8 @@ import _ from 'lodash';
 import io from 'socket.io-client';
 import { UsersService } from 'src/app/services/users.service';
 import { TokenService } from 'src/app/services/token.service';
+import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-people',
@@ -10,6 +12,7 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./people.component.css']
 })
 export class PeopleComponent implements OnInit {
+  socketUrl = environment.baseUrlSocket;
   socket: any;
   users: any;
   logedInUser: any;
@@ -18,8 +21,9 @@ export class PeopleComponent implements OnInit {
   constructor(
     private userService: UsersService,
     private tokenService: TokenService,
+    private router: Router
   ) {
-    this.socket = io('http://localhost:3000');
+    this.socket = io(this.socketUrl);
   }
 
   ngOnInit() {
@@ -53,6 +57,10 @@ export class PeopleComponent implements OnInit {
       .subscribe(data => {
         this.socket.emit('refresh', {});
       });
+  }
+
+  viewUser(user) {
+    this.router.navigate([user.username]);
   }
 
   checkInArray(arr, id) {

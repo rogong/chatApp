@@ -44,4 +44,13 @@ export class UsersService {
   markAllAsRead() {
     return this.http.post(`${this.baseUrl}/mark-all`, { all: true });
   }
+
+  addImage(image): Observable<any> {
+    return this.http.post(`${this.baseUrl}/upload-image`, { image });
+  }
+
+  setProfileImage(imageId, imageVersion): Observable<any> {
+    return this.http.get(`${this.baseUrl}/set-default-image/${imageId}/${imageVersion}`);
+  }
+
 }

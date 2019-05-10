@@ -3,6 +3,10 @@
     box-shadow: none;
     
   }
+
+  .card-action{
+    padding-top: 0px;
+  }
   
 fieldset {
     border: 1px solid rgba(0, 0, 0, 0.2); 

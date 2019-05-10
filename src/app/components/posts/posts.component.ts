@@ -6,6 +6,7 @@ import _ from 'lodash';
 import { TokenService } from 'src/app/services/token.service';
 import { Router } from '@angular/router';
 import { AlertifyService } from 'src/app/services/alertify.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-posts',
@@ -13,6 +14,8 @@ import { AlertifyService } from 'src/app/services/alertify.service';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+  socketUrl = environment.baseUrlSocket;
+
   socket: any;
   posts = [];
   user: any;
@@ -24,7 +27,7 @@ export class PostsComponent implements OnInit {
     private router: Router,
     private alertify: AlertifyService
   ) {
-    this.socket = io('http://localhost:3000');
+    this.socket = io(this.socketUrl);
   }
 
   ngOnInit() {

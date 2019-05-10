@@ -4,8 +4,8 @@ import { PostService } from 'src/app/services/post.service';
 import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import io from 'socket.io-client';
-import { MomentService } from 'src/app/services/moment.service';
 import * as moment from 'moment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-comments',
@@ -13,7 +13,7 @@ import * as moment from 'moment';
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent implements OnInit {
-
+  socketUrl = environment.baseUrlSocket;
   commentForm: FormGroup;
   comments: [];
   postId: any;
@@ -26,7 +26,7 @@ export class CommentsComponent implements OnInit {
     private route: ActivatedRoute,
     private alertify: AlertifyService
   ) {
-    this.socket = io('http://localhost:3000');
+    this.socket = io(this.socketUrl);
   }
   ngOnInit() {
     this.postId = this.route.snapshot.paramMap.get('id');

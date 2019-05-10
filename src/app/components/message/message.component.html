@@ -4,7 +4,9 @@
       <div class="card">
         <div class="valign-wrapper" style="background: #00AA8D !important">
           <div class="col s12 imgCol">
-            <img src="/assets/img/head.png" alt="" class="circle" width="30px">
+            <img *ngIf="receiverData"
+              src="https://res.cloudinary.com/rogong/image/upload/v{{ receiverData.picVersion}}/{{ receiverData.picId}}"
+              alt="" class=" circle" width="30px">
             <span style="color:#fff">{{receiver}}</span>
             <p class="isOnline">Online</p>
           </div>
@@ -32,6 +34,11 @@
         </div>
         <div class="cf"></div>
       </div>
+      <div class="left" *ngIf="typing">
+        <div class="chat-bubble left slide-left">
+          <div class="message">{{receiver}} is typing....</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -42,7 +49,8 @@
       <div class="inputRow">
         <form (ngSubmit)="sendMessage()">
           <div class="input-field inputField col s10">
-            <textarea name="message" [(ngModel)]="message" class="materialize-textarea inputBox"></textarea>
+            <textarea name="message" [(ngModel)]="message" (keypress)="isTyping()"
+              class="materialize-textarea inputBox"></textarea>
           </div>
           <div class="input-field col s1 emojiDiv">
             <button class="emojiBtn">Emoji</button>

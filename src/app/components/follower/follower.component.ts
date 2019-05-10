@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
 import { UsersService } from 'src/app/services/users.service';
 import io from 'socket.io-client';
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-follower',
@@ -10,6 +10,7 @@ import io from 'socket.io-client';
   styleUrls: ['./follower.component.css']
 })
 export class FollowerComponent implements OnInit {
+  socketUrl = environment.baseUrlSocket;
   followers = [];
   user: any;
   socket: any;
@@ -17,7 +18,7 @@ export class FollowerComponent implements OnInit {
   constructor(
     private tokenService: TokenService,
     private userService: UsersService) {
-    this.socket = io('http://localhost:3000');
+    this.socket = io(this.socketUrl);
   }
   ngOnInit() {
     this.user = this.tokenService.GetPayload();

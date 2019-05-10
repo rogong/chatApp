@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   notifications = [];
   count = [];
   socket: any;
+  userData: any;
 
   constructor(
     private tokenService: TokenService,
@@ -50,6 +51,7 @@ export class NavbarComponent implements OnInit {
   getUser() {
     this.userService.getUserById(this.user._id)
       .subscribe(data => {
+        this.userData = data.result;
         this.notifications = data.result.notifications.reverse();
         const value = _.filter(this.notifications, ['read', false]);
         this.count = value;

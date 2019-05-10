@@ -1,7 +1,8 @@
 <ul class="collection" *ngFor="let post of posts">
 
     <li class="collection-item avatar">
-        <img src="/assets/img/head.png" class="circle" alt="">
+        <img src="https://res.cloudinary.com/rogong/image/upload/v{{ post.user.picVersion}}/{{ post.user.picId}}"
+            class="circle" alt="">
         <span class="title"><b>{{post.username}} </b>
             <i> Full-Stack Developer</i> Coutry
         </span>
