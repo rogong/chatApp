@@ -61,6 +61,13 @@ export class PeopleComponent implements OnInit {
 
   viewUser(user) {
     this.router.navigate([user.username]);
+    if (this.logedInUser.username !== user.username) {
+      console.log(user.username);
+      this.userService.profileNotifications(user._id)
+        .subscribe(data => {
+          this.socket.emit('refresh', {});
+        }, err => console.log(err));
+    }
   }
 
   checkInArray(arr, id) {

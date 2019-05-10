@@ -19,14 +19,18 @@
             Notifications</a></li>
         <li><a><i class="fa fa-sticky-note"></i> Messaging</a></li>
         <li>
-          <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>me</a>
-
+          <a class='dropdown-trigger' href='#' data-target='dropdown1'>
+            <img *ngIf="userData"
+              src="https://res.cloudinary.com/rogong/image/upload/v{{userData.picVersion}}/{{userData.picId}}" alt=""
+              class="circle responsive-img" style="width:20px">
+            Me
+          </a>
         </li>
       </ul>
 
       <ul id='dropdown1' class='dropdown-content'>
         <li> <a (click)="logout()"><i class="fa fa-lock"></i> Logout</a></li>
-        <li><a href="#!">two</a></li>
+        <li><a *ngIf="userData" [routerLink]="['', userData.username]">Activities</a></li>
 
       </ul>
     </div>

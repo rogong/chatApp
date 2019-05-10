@@ -28,6 +28,8 @@ import { NgxAutoScrollModule } from 'ngx-auto-scroll';
 import { ImagesComponent } from '../components/images/images.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { ViewUserComponent } from '../components/view-user/view-user.component';
+import { FooterComponent } from '../components/footer/footer.component';
+import { ChangePasswordComponent } from '../components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { ViewUserComponent } from '../components/view-user/view-user.component';
     MessageComponent,
     ImagesComponent,
     ViewUserComponent,
+    FooterComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     CommonModule,
