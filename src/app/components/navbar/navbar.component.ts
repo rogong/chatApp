@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 import { AlertifyService } from 'src/app/services/alertify.service';
@@ -7,12 +7,14 @@ import _ from 'lodash';
 import { UsersService } from 'src/app/services/users.service';
 import io from 'socket.io-client';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, AfterViewInit {
+  @Output() onlineUsers = new EventEmitter();
   user: any;
   notifications = [];
   count = [];
@@ -38,7 +40,14 @@ export class NavbarComponent implements OnInit {
       hover: true,
       coverTrigger: false
     });
+    this.socket.emit('online', { room: 'global', user: this.user.username });
 
+  }
+
+  ngAfterViewInit() {
+    this.socket.on('usersOnline', data => {
+      this.onlineUsers.emit(data);
+    });
   }
 
   logout() {

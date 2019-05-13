@@ -35,8 +35,7 @@
                 <h3 class="card-title">
                   {{user.follower.username}}
                 </h3>
-                <!-- <p>Country</p> -->
-                <!-- <button class="btn" (click)="unFollowUser(user.userFollowed)">UnFollow</button> -->
+                <p *ngIf="user.follower.state">{{user.follower.state}}, {{user.follower.country}}</p>
 
                 <a class="secondry-content">
                   <i class="material-icons">chat</i>
@@ -60,3 +59,5 @@
   </div>
 
 </div>
+
+<app-footer></app-footer>

@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar (onlineUsers)="online($event)"></app-navbar>
 <div class="wrapper" style="margin-top: 30px">
   <div class="row">
 
@@ -33,8 +33,9 @@
               <div class="card-action">
                 <h3 class="card-title">
                   {{user.username}}
+                  <i class="fa fa-circle" *ngIf="checkIfOnline(user.username)"></i>
                 </h3>
-                <p>Country</p>
+                <p *ngIf="user.state">{{user.state}}, {{user.country}}</p>
                 <button class="btn" *ngIf="!checkInArray(userArr, user._id)" (click)="followUser(user)">Follow</button>
                 <button class="btn following" *ngIf="checkInArray(userArr, user._id)" disabled>Following</button>
                 <a class="secondry-content" [routerLink]="['/chat', user.username]">

@@ -17,6 +17,10 @@ export class UsersService {
     return this.http.get(`${this.baseUrl}/users`);
   }
 
+  getAllRecommendedUsers(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/recommended-users`);
+  }
+
   getUserById(id): Observable<any> {
     return this.http.get(`${this.baseUrl}/user/${id}`);
   }

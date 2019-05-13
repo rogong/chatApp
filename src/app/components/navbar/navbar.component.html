@@ -1,14 +1,18 @@
 <nav class="nav-extended">
   <div class="container">
     <div class="nav-wrapper">
-      <img src="/assets/img/logo.png" class="brand-logo">
 
+      <a [routerLink]="['/events']">
+        <img src="/assets/img/logo.png" class="brand-logo">
+      </a>
 
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-        <li><a><i class="fa fa-briefcase"></i> Jobs</a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+          <a><i class="fa fa-briefcase"></i> Jobs</a></li>
 
-        <li><a href=""><i class="fa fa-calendar"></i> Events</a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+          <a [routerLink]="['/events']"><i class="fa fa-calendar"></i> Events</a></li>
 
         <li *ngIf="count.length > 0" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
           <a [routerLink]="['/notifications']"><i class="fa fa-bell">

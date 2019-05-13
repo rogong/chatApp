@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar (onlineUsers)="online($event)"></app-navbar>
 <div class="wrapper" style="margin-top: 30px">
   <div class="row">
 
@@ -31,7 +31,8 @@
 
     </div>
     <div class="col s12  l3">
-      <h6 style="text-align:center">Add to your feed</h6>
+
+      <app-people-recommended [users]="onlineusers"></app-people-recommended>
       <app-right-bar></app-right-bar>
     </div>
 

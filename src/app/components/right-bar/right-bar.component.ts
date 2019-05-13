@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./right-bar.component.css']
 })
 export class RightBarComponent implements OnInit {
-
+  onlineUsers = [];
   constructor() { }
 
   ngOnInit() {
   }
+
+  online(event) {
+    this.onlineUsers = event;
+  }
+
 
 }

@@ -4,7 +4,7 @@
         <img src="https://res.cloudinary.com/rogong/image/upload/v{{ post.user.picVersion}}/{{ post.user.picId}}"
             class="circle" alt="">
         <span class="title"><b>{{post.username}} </b>
-            <i> Full-Stack Developer</i> Coutry
+            <i> Full-Stack Developer</i> , ({{post.user.state}}){{post.user.country}}
         </span>
         <p class="time">{{timeFromNow(post.created)}}
 
@@ -14,8 +14,9 @@
     <div class="row">
         <div class="col s12">
             <div class="card">
-                <div class="card-image">
-                    <img src="/assets/img/bg.png" alt="">
+                <div class="card-image" *ngIf="post.imgId">
+                    <img src="https://res.cloudinary.com/rogong/image/upload/v{{post.imgVersion}}/{{post.imgId}}"
+                        alt="">
                 </div>
                 <div class="card-content">
                     <p>{{post.post}}</p>

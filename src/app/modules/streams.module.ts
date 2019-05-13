@@ -30,6 +30,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { ViewUserComponent } from '../components/view-user/view-user.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { ChangePasswordComponent } from '../components/change-password/change-password.component';
+import { PeopleRecommendedComponent } from '../components/people-recommended/people-recommended.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ChangePasswordComponent } from '../components/change-password/change-pa
     ViewUserComponent,
     FooterComponent,
     ChangePasswordComponent,
+    PeopleRecommendedComponent,
   ],
   imports: [
     CommonModule,

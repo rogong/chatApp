@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  onlineUsers = [];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  online(event) {
+    this.onlineUsers = event;
   }
 
 }

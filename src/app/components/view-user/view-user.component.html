@@ -16,11 +16,14 @@
               <span class="card-title" style="background:#fff;color: #00AA8D">
 
                 <div class="imgDiv">
-                  <img src="https://res.cloudinary.com/rogong/image/upload/v{{userPicVersion}}/{{userPicId}}" alt=""
+                  <img src="https://res.cloudinary.com/rogong/image/upload/v{{user.picVersion}}/{{user.picId}}" alt=""
                     class="circle responsive-img" style="width:200px">
                 </div>
 
-                {{name}}
+                <h6 class="title"> {{name}}</h6>
+
+                <span class="cityName" *ngIf="user.city"> {{user.state}}, {{user.country}}</span>
+
               </span>
               <a class="btn-floating halfway-fab waves-effect waves-light red">
                 <i class="material-icons">add</i></a>
@@ -75,8 +78,10 @@
 
         <div id="posts" class="col s12" *ngIf="postsTab">
           <div class="card" *ngFor="let post of posts">
-            <div class="card-image card_image">
-              <img src="/assets/img/bg.png" alt="" class="postImage">
+            <div class="card-image card_image" *ngIf="post.postId.imgId">
+              <img
+                src="https://res.cloudinary.com/rogong/image/upload/v{{post.postId.imgVersion}}/{{post.postId.imgId}}"
+                alt="" class="postImage">
             </div>
             <div class="card-content">
               <p>{{post.postId.post}}</p>

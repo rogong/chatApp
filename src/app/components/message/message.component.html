@@ -1,62 +1,69 @@
-<div class="row">
-  <div class="col s12">
-    <div class="row">
-      <div class="card">
-        <div class="valign-wrapper" style="background: #00AA8D !important">
-          <div class="col s12 imgCol">
-            <img *ngIf="receiverData"
-              src="https://res.cloudinary.com/rogong/image/upload/v{{ receiverData.picVersion}}/{{ receiverData.picId}}"
-              alt="" class=" circle" width="30px">
-            <span style="color:#fff">{{receiver}}</span>
-            <p class="isOnline">Online</p>
-          </div>
+<div style="margin-top: 30px">
+  <div class="card">
+    <div class="valign-wrapper" style="background: #00AA8D !important">
+      <div class="col s12 imgCol">
+        <img *ngIf="receiverData"
+          src="https://res.cloudinary.com/rogong/image/upload/v{{ receiverData.picVersion}}/{{ receiverData.picId}}"
+          alt="" class=" circle" width="30px">
+        <span style="color:#fff">
+          {{receiver}}
+          <p *ngIf="isOnline" class="isOnline">Online</p>
+        </span>
 
-        </div>
       </div>
+
     </div>
   </div>
-</div>
-<div class="col s12  rowDiv" ngx-auto-scroll lock-y-offset="10" observe-attributes>
-  <div class="row">
-    <div class="col s12">
-      <div class="message-wrapper" *ngFor="let message of messageArr">
-        <div class="left" *ngIf="user.username !== receiver && user.username !== message.sendername">
-          <div class="chat-bubble left slide-left">
+  <div *ngIf="messageArr">
+    <ul class="collection" *ngFor="let message of messageArr">
+
+      <li class="collection-item avatar">
+
+
+        <div *ngIf="user.username !== receiver && user.username !== message.sendername">
+
+
+          <div class="chat-bubble">
             <div class="message">{{message.body}}</div>
           </div>
         </div>
 
-        <div class="right" *ngIf="user.username === message.sendername">
-          <div class="chat-bubble right slide-right">
+
+        <div *ngIf="user.username === message.sendername" style="background-color:azure">
+          <div class="chat-bubble">
             <div class="message">{{message.body}}</div>
           </div>
+        </div>
 
-        </div>
-        <div class="cf"></div>
-      </div>
-      <div class="left" *ngIf="typing">
-        <div class="chat-bubble left slide-left">
-          <div class="message">{{receiver}} is typing....</div>
-        </div>
-      </div>
-    </div>
+
+
+      </li>
+
+
+    </ul>
   </div>
+
 </div>
 
 <div class="col s12" style="margin: 0px">
   <div class="row">
+    <div class="left" *ngIf="typing">
+      <div class="chat-bubble left slide-left">
+        <div class="message">{{receiver}} is typing....</div>
+      </div>
+    </div>
     <div class="card" style="height: 55px">
       <div class="inputRow">
         <form (ngSubmit)="sendMessage()">
-          <div class="input-field inputField col s10">
+          <div class="input-field inputField col s8">
             <textarea name="message" [(ngModel)]="message" (keypress)="isTyping()"
               class="materialize-textarea inputBox"></textarea>
           </div>
-          <div class="input-field col s1 emojiDiv">
+          <div class="input-field col s2 emojiDiv">
             <button class="emojiBtn">Emoji</button>
           </div>
 
-          <div class="input-field col s1">
+          <div class="input-field col s2">
             <button class="suffix btn" (click)="sendMessage()">Send</button>
           </div>
 

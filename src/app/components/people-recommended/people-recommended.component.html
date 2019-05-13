@@ -1,0 +1,25 @@
+<h6 style="text-align:center">People You may know</h6>
+<ul class="collection" *ngIf="recommendedUsers">
+
+  <li class="collection-item avatar" *ngFor="let recommendedUser of recommendedUsers">
+    <img src="https://res.cloudinary.com/rogong/image/upload/v{{recommendedUser.picVersion}}/{{recommendedUser.picId}}"
+      alt="" class="circle responsive-img" style="width:50px">
+    <i class="fa fa-circle" *ngIf="checkIfOnline(recommendedUser.username)"></i>
+
+    <span class="title">{{recommendedUser.username}}</span>
+    <p> Trainner<br>
+      {{recommendedUser.state}}
+    </p>
+    <span class="secondary-content">
+      <button class="btn" *ngIf="!checkInArray(userArr, recommendedUser._id)"
+        (click)="followUser(recommendedUser)">Follow</button>
+      <button class="btn following" *ngIf="checkInArray(userArr, recommendedUser._id)" disabled>Following</button>
+    </span>
+  </li>
+
+
+</ul>
+
+<div style="text-align:center">
+  <img src="/assets/img/add.PNG" alt="">
+</div>

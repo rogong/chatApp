@@ -12,6 +12,7 @@ export class StreamsComponent implements OnInit {
   token: any;
   streamsTab = false;
   topStreamsTab = false;
+  onlineusers = [];
 
   constructor(private tokenService: TokenService, private router: Router) { }
 
@@ -32,6 +33,10 @@ export class StreamsComponent implements OnInit {
       this.streamsTab = false;
       this.topStreamsTab = true;
     }
+  }
+
+  online(event) {
+    this.onlineusers = event;
   }
 
 }

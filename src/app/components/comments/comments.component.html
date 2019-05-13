@@ -45,7 +45,9 @@
 
             <div class="row valign-wrapper" *ngFor="let comment of comments">
               <div class="col s2">
-                <img src="/assets/img/head.png" alt="" class="circle responsive-img" style="width: 30px">
+                <img
+                  src="https://res.cloudinary.com/rogong/image/upload/v{{comment.userId.picVersion}}/{{comment.userId.picId}}"
+                  alt="" class="circle responsive-img" style="width: 30px">
                 <!-- notice the "circle" class -->
               </div>
               <div class="col s10 grey lighten-5 z-depth-1 noshadow commemtradius">
@@ -87,3 +89,5 @@
   </div>
 
 </div>
+
+<app-footer></app-footer>

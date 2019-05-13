@@ -35,7 +35,7 @@
                 <h3 class="card-title">
                   {{user.userFollowed.username}}
                 </h3>
-                <p>Country</p>
+                <p *ngIf="user.userFollowed.state">{{user.userFollowed.state}}, {{user.userFollowed.country}}</p>
                 <button class="btn" (click)="unFollowUser(user.userFollowed)">UnFollow</button>
 
                 <a class="secondry-content">
@@ -60,3 +60,4 @@
   </div>
 
 </div>
+<app-footer></app-footer>

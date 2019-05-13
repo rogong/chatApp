@@ -1,17 +1,18 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
 import { MessageService } from 'src/app/services/message.service';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import io from 'socket.io-client';
 import { environment } from 'src/environments/environment';
-
+import _ from 'lodash';
 @Component({
   selector: 'app-message',
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css']
 })
-export class MessageComponent implements OnInit, AfterViewInit {
+export class MessageComponent implements OnInit, AfterViewInit, OnChanges {
+  @Input() users;
   socketUrl = environment.baseUrlSocket;
   receiver: string;
   user: any;
@@ -21,6 +22,7 @@ export class MessageComponent implements OnInit, AfterViewInit {
   socket: any;
   typingMessage;
   typing = false;
+  isOnline = false;
 
   constructor(
     private tokenService: TokenService,
@@ -47,7 +49,16 @@ export class MessageComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.users.currentValue.length > 0) {
+      const result = _.indexOf(changes.users.currentValue, this.receiver);
+      if (result > -1) {
+        this.isOnline = true;
+      } else {
+        this.isOnline = false;
+      }
+    }
+  }
   ngAfterViewInit() {
     const params = {
       room1: this.user.username,
@@ -74,7 +85,7 @@ export class MessageComponent implements OnInit, AfterViewInit {
         .subscribe(data => {
           this.socket.emit('refresh', {});
           this.message = '';
-        });
+        }, err => console.log(err));
     }
   }
 

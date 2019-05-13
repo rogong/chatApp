@@ -11,3 +11,7 @@ fieldset {
 .following {
   color: #00AA8D !important;
 }
+
+.card{
+  height: 250px;
+}
