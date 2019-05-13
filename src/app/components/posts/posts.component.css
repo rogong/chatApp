@@ -33,3 +33,8 @@
     height: 350 !important;
     border-radius: none !important;
 }
+.pointer {cursor: pointer;}
+
+.following {
+    color: #00AA8D !important;
+  }

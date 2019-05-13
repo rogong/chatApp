@@ -43,7 +43,6 @@ export class PeopleComponent implements OnInit {
       .subscribe(data => {
         _.remove(data.result, { username: this.loggedInUser.username });
         this.users = data.result;
-
       });
   }
 

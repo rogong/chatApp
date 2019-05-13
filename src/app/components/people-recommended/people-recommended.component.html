@@ -2,8 +2,11 @@
 <ul class="collection" *ngIf="recommendedUsers">
 
   <li class="collection-item avatar" *ngFor="let recommendedUser of recommendedUsers">
-    <img src="https://res.cloudinary.com/rogong/image/upload/v{{recommendedUser.picVersion}}/{{recommendedUser.picId}}"
-      alt="" class="circle responsive-img" style="width:50px">
+    <a class="pointer" (click)="viewUser(recommendedUser)">
+      <img
+        src="https://res.cloudinary.com/rogong/image/upload/v{{recommendedUser.picVersion}}/{{recommendedUser.picId}}"
+        alt="" class="circle responsive-img" style="width:50px">
+    </a>
     <i class="fa fa-circle" *ngIf="checkIfOnline(recommendedUser.username)"></i>
 
     <span class="title">{{recommendedUser.username}}</span>

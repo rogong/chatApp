@@ -38,5 +38,7 @@ export class PostService {
     return this.http.get(`${this.baseUrl}/post/${id}`);
   }
 
-
+  deletePost(postId: string) {
+    return this.http.delete(`${this.baseUrl}/delete-post/${postId}`);
+  }
 }

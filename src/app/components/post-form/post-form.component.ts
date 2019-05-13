@@ -4,6 +4,7 @@ import io from 'socket.io-client';
 import { PostService } from 'src/app/services/post.service';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from 'src/environments/environment';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 @Component({
   selector: 'app-post-form',
@@ -16,6 +17,7 @@ export class PostFormComponent implements OnInit {
 
   imgUrl = this.baseUrl + '/' + 'upload-image';
   socket: any;
+  showSpinner = false;
 
   uploader: FileUploader = new FileUploader({
     url: this.imgUrl,
@@ -24,7 +26,10 @@ export class PostFormComponent implements OnInit {
   postForm: FormGroup;
   selectedFile: any;
   image: any;
-  constructor(private fb: FormBuilder, private postService: PostService) {
+  constructor(
+    private fb: FormBuilder,
+    private alertify: AlertifyService,
+    private postService: PostService) {
     this.socket = io(this.socketUrl);
   }
 
@@ -50,6 +55,7 @@ export class PostFormComponent implements OnInit {
         image: this.selectedFile
       };
     }
+    this.showSpinner = true;
     this.postService.addPost(body)
       .subscribe(data => {
         this.socket.emit('refresh', {});
@@ -58,23 +64,17 @@ export class PostFormComponent implements OnInit {
         const filePath = <HTMLInputElement>
           document.getElementById('filePath');
         filePath.value = '';
-      }, err => console.log(err));
+        this.showSpinner = false;
+        this.alertify.success('Post added Successfully!');
+      }, err => {
+        this.showSpinner = false;
+        if (err.error.token === null) {
+          this.alertify.error('Token expired, login again.');
+        }
+      }
+      );
   }
 
-  // upload() {
-  //   if (this.selectedFile) {
-  //     this.userService.addImage(this.selectedFile)
-  //       .subscribe(data => {
-  //         this.socket.emit('refresh', {});
-  //         // tslint:disable-next-line:no-angle-bracket-type-assertion
-  //         const filePath = <HTMLInputElement>
-  //           document.getElementById('filePath');
-  //         filePath.value = '';
-  //       },
-  //         err => console.log(err)
-  //       );
-  //   }
-  // }
 
   onFileSelected(event) {
     const file: File = event[0];
