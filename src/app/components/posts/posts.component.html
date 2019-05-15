@@ -16,8 +16,8 @@
 
         </p>
         <span class="secondary-content">
-    <li *ngIf="checkUserInArray(userArr, post.user._id)">
-        <a (click)="unFollowUser(post.user.userFollowed)">
+    <li *ngIf="checkUserInArray(userArr, post.user)">
+        <a (click)="unFollowUser(post.user)">
             <i class="material-icons">block</i> Unfollow</a></li>
 
     </span>
