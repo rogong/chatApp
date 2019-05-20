@@ -1,0 +1,127 @@
+<app-navbar></app-navbar>
+<div class="wrapper" style="margin-top: 30px">
+  <div class="row">
+
+    <div class="col s12  l1"></div>
+
+    <div class="col s12  l2">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col s12  l5">
+      <div class="row">
+
+
+        <fieldset>
+
+          <div class="row">
+            <form class="col s12" [formGroup]="jobForm" novalidate (ngSubmit)="submitJob()">
+              <div class="row">
+                <div class="input-field col s4">
+                  <input id="company" type="text" formControlName="company">
+                  <label for="company">Company</label>
+                  <span class="error" *ngIf="!jobForm.controls['company'].valid && 
+                  jobForm.controls['company'].touched">
+                    Company is required
+                  </span>
+                </div>
+                <div class="input-field col s4">
+                  <input id="job_title" formControlName="jobtitle" type="text">
+                  <label for="job_title">Job Title</label>
+                  <span class="error" *ngIf="!jobForm.controls['jobtitle'].valid && 
+                  jobForm.controls['jobtitle'].touched">
+                    Job Title is required
+                  </span>
+                </div>
+                <div class="input-field col s4">
+                  <input id="location" type="text" formControlName="location">
+                  <label for="location">Location</label>
+                  <span class="error" *ngIf="!jobForm.controls['location'].valid && 
+                  jobForm.controls['location'].touched">
+                    Location is required
+                  </span>
+                </div>
+              </div>
+
+              <div class="col s12">
+                <div class="row">
+
+                  <div class="input-field col s6">
+                    <select multiple class="select" formControlName="function">
+                      <option value="" disabled selected>Choose Function</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                    <label>Job Function</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <select formControlName="jobtype">
+                      <option value="" disabled selected>Choose Type</option>
+                      <option value="1">Permanent</option>
+                      <option value="2">Contract</option>
+                      <option value="3">Temporary</option>
+                      <option value="2">Per-Time</option>
+                      <option value="3">Intent</option>
+                    </select>
+                    <label>Job Type</label>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col s12">
+                <div class="row">
+
+                  <div class="input-field col s6">
+                    <select multiple class="select" formControlName="industry">
+                      <option value="" disabled selected>Choose Industry</option>
+                      <option value="1">IT</option>
+                      <option value="2">Banking</option>
+                      <option value="3">Finance</option>
+                    </select>
+                    <label>Industry</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="website" type="text" class="validate">
+                    <label for="website">Website</label>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea formControlName="description" class="materialize-textarea"></textarea>
+                  <label for="description">Job Description</label>
+                  <span class="error" *ngIf="!jobForm.controls['description'].valid && 
+                  jobForm.controls['description'].touched">
+                    Description is required
+                  </span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col s12">
+
+                  <div class="input-field inline">
+                    <button class="btn waves-effect" id="submitbtn" [disabled]="!jobForm.valid">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </fieldset>
+
+
+      </div>
+    </div>
+    <div class="col s12  l3">
+      <h6 style="text-align:center">Add to your feed</h6>
+      <app-right-bar></app-right-bar>
+    </div>
+
+    <div class="col s12  l1"></div>
+  </div>
+
+</div>
+<app-footer></app-footer>

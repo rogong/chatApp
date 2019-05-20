@@ -38,8 +38,8 @@ export class PostService {
     return this.http.get(`${this.baseUrl}/post/${id}`);
   }
 
-  updatePost(postId: string) {
-    // return this.http.put(`${this.baseUrl}/update-post/${postId}`);
+  updatePost(postId: string, body) {
+    return this.http.put(`${this.baseUrl}/update-post/${postId}`, { body });
   }
 
   deletePost(postId: string) {

@@ -31,6 +31,7 @@ import { ViewUserComponent } from '../components/view-user/view-user.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { ChangePasswordComponent } from '../components/change-password/change-password.component';
 import { PeopleRecommendedComponent } from '../components/people-recommended/people-recommended.component';
+import { JobsComponent } from '../components/jobs/jobs.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { PeopleRecommendedComponent } from '../components/people-recommended/peo
     FooterComponent,
     ChangePasswordComponent,
     PeopleRecommendedComponent,
+    JobsComponent,
   ],
   imports: [
     CommonModule,

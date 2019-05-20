@@ -1,0 +1,55 @@
+fieldset {
+    border: 1px solid rgba(0, 0, 0, 0.2); 
+}
+#panel{
+    background-color: #ffffff;
+    padding: 0px;
+}
+
+#signupbtn{
+    float: right;
+   
+    margin-right: 10px;
+    background-color: #00AA8D;
+    font-weight: 500;
+}
+
+#title{
+    background-color: #00AA8D;
+    color: #ffffff;
+    padding: 8px;
+    margin-top: 0px;
+    font-weight: 700;
+    text-align: center;
+}
+form{
+    padding: 0px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin: 0px 20px 0px 20px;
+}
+
+.input-field {
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.error {
+    color: red;
+}
+
+#errorMsg {
+    background: #f6b2b5;
+    width: 100%;
+    height: 50px;
+    text-align: center
+}
+
+#errorMsg span {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    position: relative;
+    float: left;
+    font-size: 15px;
+}
