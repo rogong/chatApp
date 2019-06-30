@@ -12,6 +12,7 @@ import { ImagesComponent } from '../components/images/images.component';
 import { ViewUserComponent } from '../components/view-user/view-user.component';
 import { ChangePasswordComponent } from '../components/change-password/change-password.component';
 import { JobsComponent } from '../components/jobs/jobs.component';
+import { PostFormComponent } from '../components/post-form/post-form.component';
 
 const routes: Routes = [
 
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'post/:id',
     component: CommentsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'events/:postId',
+    component: StreamsComponent,
     canActivate: [AuthGuard]
   },
   {

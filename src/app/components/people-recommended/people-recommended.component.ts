@@ -69,9 +69,7 @@ export class PeopleRecommendedComponent implements OnInit {
   loadRecommendedUsers() {
     this.userService.getAllRecommendedUsers()
       .subscribe(data => {
-        _.remove(data.result, { username: this.loggedInUser.username });
         this.recommendedUsers = data.result;
-
       });
   }
 

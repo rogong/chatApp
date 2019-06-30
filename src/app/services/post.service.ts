@@ -2,16 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Post } from '../model/Post';
+import { Router } from '@angular/router';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-
+  private posts: Post[] = [];
   baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   addPost(body): Observable<any> {
 
@@ -39,7 +41,7 @@ export class PostService {
   }
 
   updatePost(postId: string, body) {
-    return this.http.put(`${this.baseUrl}/update-post/${postId}`, { body });
+    return this.http.put(`${this.baseUrl}/post/update-post/${postId}`, body);
   }
 
   deletePost(postId: string) {

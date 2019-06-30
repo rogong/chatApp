@@ -33,6 +33,7 @@ import { ChangePasswordComponent } from '../components/change-password/change-pa
 import { PeopleRecommendedComponent } from '../components/people-recommended/people-recommended.component';
 import { JobsComponent } from '../components/jobs/jobs.component';
 
+
 @NgModule({
   declarations: [
     StreamsComponent,
@@ -54,7 +55,7 @@ import { JobsComponent } from '../components/jobs/jobs.component';
     FooterComponent,
     ChangePasswordComponent,
     PeopleRecommendedComponent,
-    JobsComponent,
+    JobsComponent
   ],
   imports: [
     CommonModule,
