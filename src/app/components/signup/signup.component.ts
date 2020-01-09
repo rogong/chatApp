@@ -42,9 +42,9 @@ export class SignupComponent implements OnInit {
       .subscribe(data => {
         this.tokenService.SetToken(data.token);
         this.signupForm.reset();
-        setTimeout(() => {
+        // setTimeout(() => {
           this.router.navigate(['login']);
-        }, 1000);
+       // }, 1000);
         this.alertify.success('Signup succesful, login to continue.');
       },
         err => {

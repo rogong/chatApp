@@ -43,8 +43,9 @@ export class LoginComponent implements OnInit {
         this.loginForm.reset();
         setTimeout(() => {
           this.router.navigate(['events']);
-        }, 1000);
+        }, 500);
         this.alertify.success('Login succesful');
+        this.showSpinner = false;
       },
         err => {
           this.showSpinner = false;

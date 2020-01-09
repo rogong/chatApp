@@ -44,7 +44,7 @@ export class PostsComponent implements OnInit {
       coverTrigger: false
     });
     this.user = this.tokenService.GetPayload();
-    console.log(this.user);
+    //console.log(this.user);
     this.loadPosts();
     this.loadUser();
     this.socket.on('refreshPage', (data) => {
@@ -65,7 +65,7 @@ export class PostsComponent implements OnInit {
     this.postService.getAllPosts()
       .subscribe(data => {
         this.posts = data.posts;
-        console.log(this.posts);
+        //console.log(this.posts);
         this.showSpinner = false;
       },
         err => {

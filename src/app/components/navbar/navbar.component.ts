@@ -6,7 +6,7 @@ import * as M from 'materialize-css';
 import _ from 'lodash';
 import { UsersService } from 'src/app/services/users.service';
 import io from 'socket.io-client';
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -20,13 +20,14 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   count = [];
   socket: any;
   userData: any;
+  socketUrl = environment.baseUrlSocket;
 
   constructor(
     private tokenService: TokenService,
     private router: Router,
     private alertify: AlertifyService,
     private userService: UsersService
-  ) { this.socket = io('http://localhost:3000'); }
+  ) { this.socket = io(this.socketUrl); }
 
   ngOnInit() {
     this.user = this.tokenService.GetPayload();

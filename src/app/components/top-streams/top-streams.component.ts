@@ -6,7 +6,7 @@ import _ from 'lodash';
 import { TokenService } from 'src/app/services/token.service';
 import { Router } from '@angular/router';
 import { AlertifyService } from 'src/app/services/alertify.service';
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-top-streams',
@@ -14,6 +14,7 @@ import { AlertifyService } from 'src/app/services/alertify.service';
   styleUrls: ['./top-streams.component.css']
 })
 export class TopStreamsComponent implements OnInit {
+  socketUrl = environment.baseUrlSocket;
   socket: any;
   topPosts = [];
   user: any;
@@ -25,7 +26,7 @@ export class TopStreamsComponent implements OnInit {
     private router: Router,
     private alertify: AlertifyService
   ) {
-    this.socket = io('http://localhost:3000');
+    this.socket = io(this.socketUrl);
   }
 
   ngOnInit() {

@@ -3,6 +3,7 @@ import { TokenService } from 'src/app/services/token.service';
 import { UsersService } from 'src/app/services/users.service';
 import io from 'socket.io-client';
 import * as moment from 'moment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-notifications',
@@ -10,6 +11,7 @@ import * as moment from 'moment';
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
+  socketUrl = environment.baseUrlSocket;
   user: any;
   socket: any;
   notifications = [];
@@ -17,7 +19,7 @@ export class NotificationsComponent implements OnInit {
   constructor(
     private tokenService: TokenService,
     private userService: UsersService) {
-    this.socket = io('http://localhost:3000');
+    this.socket = io(this.socketUrl);
   }
 
   ngOnInit() {

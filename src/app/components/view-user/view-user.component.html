@@ -17,12 +17,14 @@
 
                 <div class="imgDiv">
                   <img src="https://res.cloudinary.com/rogong/image/upload/v{{user.picVersion}}/{{user.picId}}" alt=""
-                    class="circle responsive-img" style="width:200px">
+                    class="circle responsive-img" style="width:200px" *ngIf="user">
                 </div>
 
                 <h6 class="title"> {{name}}</h6>
 
-                <span class="cityName" *ngIf="user.city"> {{user.state}}, {{user.country}}</span>
+                <div>
+                  <span class="cityName" *ngIf="user"> {{user.state}}, {{user.country}}</span>
+                </div>
 
               </span>
               <a class="btn-floating halfway-fab waves-effect waves-light red">
@@ -78,15 +80,19 @@
 
         <div id="posts" class="col s12" *ngIf="postsTab">
           <div class="card" *ngFor="let post of posts">
-            <div class="card-image card_image" *ngIf="post.postId.imgId">
-              <img
-                src="https://res.cloudinary.com/rogong/image/upload/v{{post.postId.imgVersion}}/{{post.postId.imgId}}"
-                alt="" class="postImage">
-            </div>
-            <div class="card-content">
+       
+        
+          <div class="card-image card_image">
+            <img *ngIf="post.postId.imgId"
+            src="https://res.cloudinary.com/rogong/image/upload/v{{post.postId.imgVersion}}/{{post.postId.imgId}}"
+            alt="" class="postImage">
+          </div>
+
+            
+            <div class="card-content" *ngIf="post.postId">
               <p>{{post.postId.post}}</p>
-            </div>
-            <div class="card-action">
+           
+            <div class="card-action" *ngIf="post.postId">
               <i class="material-icons">thumb_up</i>
               <span id="iconSpan">{{post.postId.totalLikes}}</span>
               <i class="material-icons">chat</i>
@@ -94,6 +100,7 @@
 
               <span style="float:right">{{timeFromNow(post.postId.created)}}</span>
             </div>
+          </div>
           </div>
 
         </div>
@@ -170,6 +177,8 @@
       </div>
 
     </div>
+
+
     <div class="col s12  l3">
       <h6 style="text-align:center">Add to your feed</h6>
       Followers
