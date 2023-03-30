@@ -1,3 +1,5 @@
+<img src="https://repository-images.githubusercontent.com/183801499/d0d47400-7346-11e9-8bd1-cc10f429936f" alt="" />
+
 # ChatApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.4.
